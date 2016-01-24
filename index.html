@@ -1,0 +1,61 @@
+<html>
+   <head>
+      <style type="text/css">
+      #contemporaneamente{
+         font-size: 200px;
+         font-weight: lighter;
+         float: left;
+      }
+
+      @font-face {
+         font-family: codenewroman;
+         src: url("CodeNewRoman.otf");
+      }
+
+      body{
+         font-family: codenewroman;
+      }
+
+      #container{
+         padding-top: 75px;
+         font-size: 50px;
+      }
+
+      input{
+         height: 40px;
+         position: relative;
+         top: -10px;
+      }
+      </style>
+      <title></title>
+   </head>
+   <body>
+      <div id="contemporaneamente">{</div>
+      <div id="container">
+         <div>(<input type="text" id="x1">)x + (<input type="text" id="y1">)y = (<input type="text" id="i1">)</div>
+         <div>(<input type="text" id="x2">)x + (<input type="text" id="y2">)y = (<input type="text" id="i2">)</div>
+      </div>
+      <p id="prova"></p>
+      <input id="submit" onclick="risultato()" type="submit">
+      <script>
+      var xUno, yUno, iUno;
+      var xDue, yDue, iDue;
+
+      var x1 = document.getElementById("x1");
+      var y1 = document.getElementById("y1");
+      var i1 = document.getElementById("i1");
+      var x2 = document.getElementById("x2");
+      var y2 = document.getElementById("y2");
+      var i2 = document.getElementById("i2");
+
+      function risultato(){
+         var determinante = Number(x1.value)*Number(y2.value) - Number(x2.value)*Number(y1.value);
+         var determinanteX = Number(i1.value)*Number(y2.value) - Number(i2.value)*Number(y1.value);
+         var determinanteY = Number(x1.value)*Number(i2.value) - Number(x2.value)*Number(i1.value);
+         var x = determinanteX / determinante;
+         var y = determinanteY / determinante;
+         document.getElementById("prova").innerHTML = "Determinante = " + determinante + " X = " + x + " Y = " + y;   
+      }
+      </script>
+   </body>
+</html>
